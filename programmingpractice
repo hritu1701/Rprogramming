@@ -1,0 +1,32 @@
+makeVector <- function(initialValue = NULL) {
+  # Initialize the vector as a list
+  vec <- list(
+    value = initialValue,
+    getValue = function() {
+      vec$value
+    },
+    setValue = function(newValue) {
+      vec$value <- newValue
+    },
+    getMean = function() {
+      mean(vec$value)
+    }
+  )
+  return(vec)
+}
+
+# Create a new vector with an initial value of 10
+myVector <- makeVector(10)
+
+# Get the current value of the vector
+currentValue <- myVector$getValue()
+print(currentValue) # prints 10
+
+# Set the value of the vector to 20
+myVector$setValue(20)
+currentValue <- myVector$getValue()
+print(currentValue) # prints 20
+
+# Get the mean of the vector
+meanValue <- myVector$getMean()
+print(meanValue) # prints 20
